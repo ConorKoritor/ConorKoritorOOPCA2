@@ -28,9 +28,9 @@
 
         <Label Grid.Row="1" Grid.Column="2" Name="lblPlayerRating" Content="Player Rating" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1">
-            <Image x:Name="imgStar1" Width="50px" Height="50px"></Image>
-            <Image x:Name="imgStar2" Width="50px" Height="50px"></Image>
-            <Image x:Name="imgStar3" Width="50px" Height="50px"></Image>
+            <Image x:Name="imgStar1" Width="50px" Height="50px" Source="images/staroutline.png"></Image>
+            <Image x:Name="imgStar2" Width="50px" Height="50px" Source="images/staroutline.png"></Image>
+            <Image x:Name="imgStar3" Width="50px" Height="50px" Source="images/staroutline.png"></Image>
         </StackPanel>
 
         <Label Grid.Row="2" Grid.Column="2" Name="lblResult" Content="Result" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
