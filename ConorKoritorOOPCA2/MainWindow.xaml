@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150px"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.ColumnSpan="3" FontSize="50px" Content="Tiddlywinks World Cup" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="lblPageLabel"/>
         
+        <Label Grid.Row="1" x:Name="lblTeamListBoxLabel" Content="Teams" FontSize="15px" Width="60px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="32,0,0,0"/>
+        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Margin="35" x:Name="lstbxTeams"/>
+
+        <Label Grid.Row="1" Grid.Column="1" x:Name="lblPlayerListBoxLabel" Content="Players" FontSize="15px" Width="60px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="32,0,0,0"/>
+        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="35" x:Name="lstbxPlayers"/>
+
+        <Label Grid.Row="1" Grid.Column="2" Name="lblPlayerRating" Content="Player Rating" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1">
+            <Image x:Name="imgStar1" Width="50px" Height="50px"></Image>
+            <Image x:Name="imgStar2" Width="50px" Height="50px"></Image>
+            <Image x:Name="imgStar3" Width="50px" Height="50px"></Image>
+        </StackPanel>
+
+        <Label Grid.Row="2" Grid.Column="2" Name="lblResult" Content="Result" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="2" Margin="0,40,0,0">
+            <Button x:Name="btnWin" Content="Win" Width="40px" Margin="0,0,0,15px"/>
+            <Button x:Name="btnLoss" Content="Loss" Width="40px" Margin="0,0,0,15px"/>
+            <Button x:Name="btnDraw" Content="Draw" Width="40px" Margin="0,0,0,15px"/>
+        </StackPanel>
     </Grid>
 </Window>
