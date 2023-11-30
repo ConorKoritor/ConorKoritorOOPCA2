@@ -20,10 +20,17 @@ namespace ConorKoritorOOPCA2
             Players = new ObservableCollection<Player>();
         }
 
-        public Team(string name, ObservableCollection<Player> players)
+        public Team(string name)
         {
+            //Constructor does not take in a Collection of Players so that the MainWindow.Xaml.cs doesnt have to initialize a bunch of Collections
             Name = name;
-            Players = players;
+        }
+
+
+        public void AddPlayer(Player player)
+        {
+            //Takes in a player and adds it to the Observable Collection
+            Players.Add(player);
         }
     }
 }

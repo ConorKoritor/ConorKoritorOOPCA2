@@ -19,10 +19,14 @@ namespace ConorKoritorOOPCA2
             ResultRecord = new List<string>{"L", "L", "L", "L", "L"};
         }
 
-        public Player(string name, List<string> resultRecord)
+        public Player(string name, string resultsRecord)
         {
             Name = name;
-            ResultRecord = resultRecord;
+            string[]results = resultsRecord.Split(',');
+            foreach (string result in results)
+            {
+                ResultRecord.Add(result);
+            }
         }
     }
 }
