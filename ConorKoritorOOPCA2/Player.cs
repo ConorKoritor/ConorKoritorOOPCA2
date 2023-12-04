@@ -61,6 +61,12 @@ namespace ConorKoritorOOPCA2
             return TotalPoints;
         }
 
+        public void AddResult(string result)
+        {
+            ResultRecord.Add(result);
+            ResultRecord.RemoveAt(0);
+        }
+
         public override string ToString()
         {
             //Combines the elements of the list of results so that it can be displayed as 1 string

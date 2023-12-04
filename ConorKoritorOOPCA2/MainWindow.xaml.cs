@@ -101,6 +101,14 @@ namespace ConorKoritorOOPCA2
 
         private void lstbxPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Calls Display stars
+            DisplayStars();
+        }
+
+        private void DisplayStars()
+        {
+            //Created Display stars as a seperate method so it can be called after the win/draw/loss buttons are pressed
+
             //Changes the Rating Stars based off the selected players points.
 
             Player p = lstbxPlayers.SelectedItem as Player;
@@ -109,7 +117,7 @@ namespace ConorKoritorOOPCA2
             if (p != null)
             {
                 //checks how many points the player has and what category they fall into
-                if(p.GetPoints() == 0)
+                if (p.GetPoints() == 0)
                 {
                     //changes all of the star images to the right combination by creating a bitmap image and setting it at the 
                     //file path of the right star
@@ -120,21 +128,21 @@ namespace ConorKoritorOOPCA2
                     imgStar2.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
                     imgStar3.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
                 }
-                else if(p.GetPoints() >= 1 && p.GetPoints() <= 5)
+                else if (p.GetPoints() >= 1 && p.GetPoints() <= 5)
                 {
                     //1-5 points is the first star filled in
                     imgStar1.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
                     imgStar2.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
                     imgStar3.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
                 }
-                else if(p.GetPoints() >= 6 && p.GetPoints() <= 10)
+                else if (p.GetPoints() >= 6 && p.GetPoints() <= 10)
                 {
                     //6-10 points is the first 2 stars filled in
                     imgStar1.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
                     imgStar2.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
                     imgStar3.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
                 }
-                else if(p.GetPoints() >= 11 && p.GetPoints() <= 15)
+                else if (p.GetPoints() >= 11 && p.GetPoints() <= 15)
                 {
                     //11-15 points is all 3 stars filled in
                     imgStar1.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
@@ -142,6 +150,57 @@ namespace ConorKoritorOOPCA2
                     imgStar3.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
                 }
             }
+        }
+
+        private void btnWin_Click(object sender, RoutedEventArgs e)
+        {
+            //When the win button is clicked the program gets the selected player and calls the AddResult method from Player
+            Player p = lstbxPlayers.SelectedItem as Player;
+
+            if (p != null) {
+                p.AddResult("W");
+            }
+
+            //We then want to recalculate the points of the team that the player is a part of
+            //This method in teams also calls the CalculatePoints() method inside of each player in the team
+            Teams[lstbxTeams.SelectedIndex].CalculatePoints();
+
+            //Regreshes the list of teams to show the change after adding a result
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
+
+            //Calls display stars so the stars are dynamically updated after clicking the button
+            DisplayStars();
+        }
+
+        private void btnLoss_Click(object sender, RoutedEventArgs e)
+        {
+            //This is the same logic as the win button but just passes in a loss instead
+            Player p = lstbxPlayers.SelectedItem as Player;
+
+            if (p != null)
+            {
+                p.AddResult("L");
+            }
+
+            Teams[lstbxTeams.SelectedIndex].CalculatePoints();
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
+
+            DisplayStars();
+        }
+
+        private void btnDraw_Click(object sender, RoutedEventArgs e)
+        {
+            Player p = lstbxPlayers.SelectedItem as Player;
+
+            if (p != null)
+            {
+                p.AddResult("D");
+            }
+
+            Teams[lstbxTeams.SelectedIndex].CalculatePoints();
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
+
+            DisplayStars();
         }
     }
 }

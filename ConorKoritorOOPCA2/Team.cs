@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace ConorKoritorOOPCA2
 {
@@ -54,6 +55,9 @@ namespace ConorKoritorOOPCA2
             {
                 Totalpoints += player.CalculatePoints();
             }
+
+            //Refreshes the collection of players after calculating point totals
+            CollectionViewSource.GetDefaultView(Players).Refresh();
 
             return Totalpoints;
         }
