@@ -67,7 +67,8 @@ namespace ConorKoritorOOPCA2
                 Totalpoints += player.CalculatePoints();
             }
 
-
+            //Refreshes the collection of players after calculating point totals
+            CollectionViewSource.GetDefaultView(Players).Refresh();
 
             return Totalpoints;
         }
