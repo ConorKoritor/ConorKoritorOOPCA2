@@ -23,7 +23,7 @@ namespace ConorKoritorOOPCA2
 
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Team> Teams = new ObservableCollection<Team>();
+        private List<Team> Teams = new List<Team>();
         public MainWindow()
         {
             InitializeComponent();
@@ -84,6 +84,9 @@ namespace ConorKoritorOOPCA2
             {
                 team.CalculatePoints();
             }
+
+            Teams.ToList().Sort();
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
 
         }
 
@@ -165,7 +168,13 @@ namespace ConorKoritorOOPCA2
             //This method in teams also calls the CalculatePoints() method inside of each player in the team
             Teams[lstbxTeams.SelectedIndex].CalculatePoints();
 
+            //Sorting the teams from the highest to lowest and then refreshing the display
+            Teams.Sort();
+            Teams.Reverse();
+            DisplayData();
+
             //Regreshes the list of teams to show the change after adding a result
+            Teams.ToList().Sort();
             CollectionViewSource.GetDefaultView(Teams).Refresh();
 
             //Calls display stars so the stars are dynamically updated after clicking the button
@@ -183,7 +192,9 @@ namespace ConorKoritorOOPCA2
             }
 
             Teams[lstbxTeams.SelectedIndex].CalculatePoints();
-            CollectionViewSource.GetDefaultView(Teams).Refresh();
+            Teams.Sort();
+            Teams.Reverse();
+            DisplayData();
 
             DisplayStars();
         }
@@ -198,7 +209,9 @@ namespace ConorKoritorOOPCA2
             }
 
             Teams[lstbxTeams.SelectedIndex].CalculatePoints();
-            CollectionViewSource.GetDefaultView(Teams).Refresh();
+            Teams.Sort();
+            Teams.Reverse();
+            DisplayData();
 
             DisplayStars();
         }

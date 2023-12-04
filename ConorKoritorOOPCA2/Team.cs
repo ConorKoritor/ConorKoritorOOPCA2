@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace ConorKoritorOOPCA2
 {
-    internal class Team
+    internal class Team : IComparable
     {
         private string Name {  get; set; }
         private ObservableCollection<Player> Players { get; set; }
@@ -31,6 +31,16 @@ namespace ConorKoritorOOPCA2
             CalculatePoints();
         }
 
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Team otherTeam = obj as Team;
+            if (otherTeam != null)
+                return this.Totalpoints.CompareTo(otherTeam.Totalpoints);
+            else
+                throw new ArgumentException("Object is not a Temperature");
+        }
 
         public void AddPlayer(Player player)
         {
