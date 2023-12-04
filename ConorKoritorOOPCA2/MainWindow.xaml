@@ -24,7 +24,7 @@
         <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Margin="35" x:Name="lstbxTeams" SelectionChanged="lstbxTeams_SelectionChanged"/>
 
         <Label Grid.Row="1" Grid.Column="1" x:Name="lblPlayerListBoxLabel" Content="Players" FontSize="15px" Width="60px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="32,0,0,0"/>
-        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="35" x:Name="lstbxPlayers"/>
+        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="35" x:Name="lstbxPlayers" SelectionChanged="lstbxPlayers_SelectionChanged"/>
 
         <Label Grid.Row="1" Grid.Column="2" Name="lblPlayerRating" Content="Player Rating" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1">

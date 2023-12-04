@@ -56,6 +56,11 @@ namespace ConorKoritorOOPCA2
             return TotalPoints;
         }
 
+        public int GetPoints()
+        {
+            return TotalPoints;
+        }
+
         public override string ToString()
         {
             //Combines the elements of the list of results so that it can be displayed as 1 string

@@ -98,5 +98,50 @@ namespace ConorKoritorOOPCA2
             //Sets the display of the right lstbx to the Team Observable collection of players at the selected index
             lstbxPlayers.ItemsSource = Teams[lstbxTeams.SelectedIndex].getPlayers();
         }
+
+        private void lstbxPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Changes the Rating Stars based off the selected players points.
+
+            Player p = lstbxPlayers.SelectedItem as Player;
+
+            //checks if the selection is not null before checking the players total points
+            if (p != null)
+            {
+                //checks how many points the player has and what category they fall into
+                if(p.GetPoints() == 0)
+                {
+                    //changes all of the star images to the right combination by creating a bitmap image and setting it at the 
+                    //file path of the right star
+                    //It weither sets the image to the star filled in or the star outline depending on how many stars the players total points 
+                    //are worth
+                    //0 points all the stars are outlines
+                    imgStar1.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
+                    imgStar2.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
+                    imgStar3.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
+                }
+                else if(p.GetPoints() >= 1 && p.GetPoints() <= 5)
+                {
+                    //1-5 points is the first star filled in
+                    imgStar1.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
+                    imgStar2.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
+                    imgStar3.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
+                }
+                else if(p.GetPoints() >= 6 && p.GetPoints() <= 10)
+                {
+                    //6-10 points is the first 2 stars filled in
+                    imgStar1.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
+                    imgStar2.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
+                    imgStar3.Source = new BitmapImage(new Uri("images/staroutline.png", UriKind.Relative));
+                }
+                else if(p.GetPoints() >= 11 && p.GetPoints() <= 15)
+                {
+                    //11-15 points is all 3 stars filled in
+                    imgStar1.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
+                    imgStar2.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
+                    imgStar3.Source = new BitmapImage(new Uri("images/starsolid.png", UriKind.Relative));
+                }
+            }
+        }
     }
 }
