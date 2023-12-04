@@ -21,7 +21,7 @@
         <Label Grid.ColumnSpan="3" FontSize="50px" Content="Tiddlywinks World Cup" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="lblPageLabel"/>
         
         <Label Grid.Row="1" x:Name="lblTeamListBoxLabel" Content="Teams" FontSize="15px" Width="60px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="32,0,0,0"/>
-        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Margin="35" x:Name="lstbxTeams"/>
+        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Margin="35" x:Name="lstbxTeams" SelectionChanged="lstbxTeams_SelectionChanged"/>
 
         <Label Grid.Row="1" Grid.Column="1" x:Name="lblPlayerListBoxLabel" Content="Players" FontSize="15px" Width="60px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="32,0,0,0"/>
         <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="35" x:Name="lstbxPlayers"/>

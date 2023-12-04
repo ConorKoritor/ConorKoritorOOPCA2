@@ -79,6 +79,7 @@ namespace ConorKoritorOOPCA2
 
         public void CalculatePoints()
         {
+            //Loops through each team in the observable collection teams and calls that teams CalculatePoints() method
             foreach(Team team in Teams)
             {
                 team.CalculatePoints();
@@ -88,12 +89,14 @@ namespace ConorKoritorOOPCA2
 
         public void DisplayData()
         {
+            //Sets the display of the left selection box to our ObservableCollection of teams and sets the default selected index of the lstbx
             lstbxTeams.ItemsSource = Teams;
-            lstbxTeams.SelectedIndex = 0;
-
-            lstbxPlayers.ItemsSource = Teams[lstbxTeams.SelectedIndex].getPlayers();
         }
 
-
+        private void lstbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Sets the display of the right lstbx to the Team Observable collection of players at the selected index
+            lstbxPlayers.ItemsSource = Teams[lstbxTeams.SelectedIndex].getPlayers();
+        }
     }
 }

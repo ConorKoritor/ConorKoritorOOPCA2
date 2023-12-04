@@ -46,6 +46,8 @@ namespace ConorKoritorOOPCA2
         {
             //This method calculates the total points of the players in the team. The points are based off of wins, losses and draws
             //the method then returns an int of the total points calculated
+            //This method calls the CaslculatePoints method of each player which allows us to only have to call the Calculate points method of each team
+            //instead of each player individually
             Totalpoints = 0;
 
             foreach(Player player in Players)
