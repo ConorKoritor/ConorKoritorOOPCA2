@@ -20,6 +20,8 @@ namespace ConorKoritorOOPCA2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// Github Link https://github.com/ConorKoritor/ConorKoritorOOPCA2
+
 
     public partial class MainWindow : Window
     {
@@ -201,6 +203,7 @@ namespace ConorKoritorOOPCA2
 
         private void btnDraw_Click(object sender, RoutedEventArgs e)
         {
+            //This is the same logic as the win button but just passes in a draw instead
             Player p = lstbxPlayers.SelectedItem as Player;
 
             if (p != null)

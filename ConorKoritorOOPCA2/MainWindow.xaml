@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConorKoritorOOPCA2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -14,12 +14,12 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100px"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100px"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Label Grid.ColumnSpan="3" FontSize="50px" Content="Tiddlywinks World Cup" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="lblPageLabel"/>
-        
+
         <Label Grid.Row="1" x:Name="lblTeamListBoxLabel" Content="Teams" FontSize="15px" Width="60px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="32,0,0,0"/>
         <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Black" BorderThickness="2px" Grid.Row="1" Grid.RowSpan="2" Margin="35" x:Name="lstbxTeams" SelectionChanged="lstbxTeams_SelectionChanged"/>
 
@@ -28,16 +28,16 @@
 
         <Label Grid.Row="1" Grid.Column="2" Name="lblPlayerRating" Content="Player Rating" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1">
-            <Image x:Name="imgStar1" Width="50px" Height="50px" Source="images/staroutline.png"></Image>
-            <Image x:Name="imgStar2" Width="50px" Height="50px" Source="images/staroutline.png"></Image>
-            <Image x:Name="imgStar3" Width="50px" Height="50px" Source="images/staroutline.png"></Image>
+            <Image x:Name="imgStar1" Width="32" Height="32" Source="images/staroutline.png" Margin="18, 0, 5, 0"/>
+            <Image x:Name="imgStar2" Width="32" Height="32" Source="images/staroutline.png" Margin="5,0,5,0"/>
+            <Image x:Name="imgStar3" Width="32" Height="32" Source="images/staroutline.png" Margin="5,0,5,0"/>
         </StackPanel>
 
-        <Label Grid.Row="2" Grid.Column="2" Name="lblResult" Content="Result" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="2" Name="lblResult" Content="Record Result" FontSize="15px" Height="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="2" Margin="0,40,0,0">
-            <Button x:Name="btnWin" Content="Win" Width="40px" Margin="0,0,0,15px" Click="btnWin_Click"/>
-            <Button x:Name="btnLoss" Content="Loss" Width="40px" Margin="0,0,0,15px" Click="btnLoss_Click"/>
-            <Button x:Name="btnDraw" Content="Draw" Width="40px" Margin="0,0,0,15px" Click="btnDraw_Click"/>
+            <Button x:Name="btnWin" Content="Win" Width="60px" Margin="0,0,0,15px" Click="btnWin_Click"/>
+            <Button x:Name="btnLoss" Content="Loss" Width="60px" Margin="0,0,0,15px" Click="btnLoss_Click"/>
+            <Button x:Name="btnDraw" Content="Draw" Width="60px" Margin="0,0,0,15px" Click="btnDraw_Click"/>
         </StackPanel>
     </Grid>
 </Window>
