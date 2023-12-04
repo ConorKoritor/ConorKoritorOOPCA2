@@ -39,13 +39,13 @@ namespace ConorKoritorOOPCA2
 
         public void GetData()
         {
-            //Get Data creates 3 teams and adds them to an Observable collection
+            //Get Data creates 3 teams and adds them to a list
 
             Team t1 = new Team("France");
             Team t2 = new Team("Italy");
             Team t3 = new Team("Spain");
 
-            //Adds the 3 teams to the Observable Collection of Teams
+            //Adds the 3 teams to the list of Teams
             Teams.Add(t1);
             Teams.Add(t2);
             Teams.Add(t3);
@@ -55,7 +55,7 @@ namespace ConorKoritorOOPCA2
             Player p2 = new Player("Claude", "D,D,D,L,W");
             Player p3 = new Player("Antoine", "L,W,D,L,W");
 
-            //Adds Players to the teams Observable collection of Players
+            //Adds Players to the teams list of Players
             t1.AddPlayer(p1);
             t1.AddPlayer(p2);
             t1.AddPlayer(p3);
@@ -81,7 +81,7 @@ namespace ConorKoritorOOPCA2
 
         public void CalculatePoints()
         {
-            //Loops through each team in the observable collection teams and calls that teams CalculatePoints() method
+            //Loops through each team in the list teams and calls that teams CalculatePoints() method
             foreach(Team team in Teams)
             {
                 team.CalculatePoints();
@@ -94,13 +94,13 @@ namespace ConorKoritorOOPCA2
 
         public void DisplayData()
         {
-            //Sets the display of the left selection box to our ObservableCollection of teams and sets the default selected index of the lstbx
+            //Sets the display of the left selection box to our list of teams and sets the default selected index of the lstbx
             lstbxTeams.ItemsSource = Teams;
         }
 
         private void lstbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Sets the display of the right lstbx to the Team Observable collection of players at the selected index
+            //Sets the display of the right lstbx to the Team list of players at the selected index
             lstbxPlayers.ItemsSource = Teams[lstbxTeams.SelectedIndex].getPlayers();
         }
 
@@ -174,10 +174,6 @@ namespace ConorKoritorOOPCA2
             Teams.Sort();
             Teams.Reverse();
             DisplayData();
-
-            //Regreshes the list of teams to show the change after adding a result
-            Teams.ToList().Sort();
-            CollectionViewSource.GetDefaultView(Teams).Refresh();
 
             //Calls display stars so the stars are dynamically updated after clicking the button
             DisplayStars();

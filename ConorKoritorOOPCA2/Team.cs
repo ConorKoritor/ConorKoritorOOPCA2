@@ -11,7 +11,7 @@ namespace ConorKoritorOOPCA2
     internal class Team : IComparable
     {
         private string Name {  get; set; }
-        private ObservableCollection<Player> Players { get; set; }
+        private List<Player> Players { get; set; }
         private int Totalpoints { get; set; }
 
         public Team() 
@@ -19,20 +19,21 @@ namespace ConorKoritorOOPCA2
             //Constructor if no data is entered
             //Unnecessary as we will hard code the teams but just future proofs the code
             Name = "No Name";
-            Players = new ObservableCollection<Player>();
+            Players = new List<Player>();
             CalculatePoints();
         }
 
         public Team(string name)
         {
-            //Constructor does not take in a Collection of Players so that the MainWindow.Xaml.cs doesnt have to initialize a bunch of Collections
+            //Constructor does not take in a listof Players so that the MainWindow.Xaml.cs doesnt have to initialize a bunch of lists
             Name = name;
-            Players = new ObservableCollection<Player>();
+            Players = new List<Player>();
             CalculatePoints();
         }
 
         public int CompareTo(object obj)
         {
+            //Icomparable Logic so that we can sort the list of teams
             if (obj == null) return 1;
 
             Team otherTeam = obj as Team;
@@ -44,11 +45,11 @@ namespace ConorKoritorOOPCA2
 
         public void AddPlayer(Player player)
         {
-            //Takes in a player and adds it to the Observable Collection
+            //Takes in a player and adds it to the List
             Players.Add(player);
         }
 
-        public ObservableCollection<Player> getPlayers()
+        public List<Player> getPlayers()
         {
             return Players;
         }
@@ -66,8 +67,7 @@ namespace ConorKoritorOOPCA2
                 Totalpoints += player.CalculatePoints();
             }
 
-            //Refreshes the collection of players after calculating point totals
-            CollectionViewSource.GetDefaultView(Players).Refresh();
+
 
             return Totalpoints;
         }
