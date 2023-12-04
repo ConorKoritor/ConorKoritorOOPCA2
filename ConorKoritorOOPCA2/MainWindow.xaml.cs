@@ -29,12 +29,9 @@ namespace ConorKoritorOOPCA2
         public MainWindow()
         {
             InitializeComponent();
-
             GetData();
-
-            DisplayData();
-
             CalculatePoints();
+            DisplayData();
         }
 
         public void GetData()
@@ -95,6 +92,8 @@ namespace ConorKoritorOOPCA2
         public void DisplayData()
         {
             //Sets the display of the left selection box to our list of teams and sets the default selected index of the lstbx
+            Teams.Sort();
+            Teams.Reverse();
             lstbxTeams.ItemsSource = Teams;
         }
 
@@ -173,7 +172,7 @@ namespace ConorKoritorOOPCA2
             //Sorting the teams from the highest to lowest and then refreshing the display
             Teams.Sort();
             Teams.Reverse();
-            DisplayData();
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
 
             //Calls display stars so the stars are dynamically updated after clicking the button
             DisplayStars();
@@ -192,7 +191,7 @@ namespace ConorKoritorOOPCA2
             Teams[lstbxTeams.SelectedIndex].CalculatePoints();
             Teams.Sort();
             Teams.Reverse();
-            DisplayData();
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
 
             DisplayStars();
         }
@@ -210,7 +209,7 @@ namespace ConorKoritorOOPCA2
             Teams[lstbxTeams.SelectedIndex].CalculatePoints();
             Teams.Sort();
             Teams.Reverse();
-            DisplayData();
+            CollectionViewSource.GetDefaultView(Teams).Refresh();
 
             DisplayStars();
         }
