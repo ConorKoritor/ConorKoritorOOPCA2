@@ -29,6 +29,10 @@ namespace ConorKoritorOOPCA2
             InitializeComponent();
 
             GetData();
+
+            DisplayData();
+
+            CalculatePoints();
         }
 
         public void GetData()
@@ -39,6 +43,7 @@ namespace ConorKoritorOOPCA2
             Team t2 = new Team("Italy");
             Team t3 = new Team("Spain");
 
+            //Adds the 3 teams to the Observable Collection of Teams
             Teams.Add(t1);
             Teams.Add(t2);
             Teams.Add(t3);
@@ -48,6 +53,7 @@ namespace ConorKoritorOOPCA2
             Player p2 = new Player("Claude", "D,D,D,L,W");
             Player p3 = new Player("Antoine", "L,W,D,L,W");
 
+            //Adds Players to the teams Observable collection of Players
             t1.AddPlayer(p1);
             t1.AddPlayer(p2);
             t1.AddPlayer(p3);
@@ -69,6 +75,23 @@ namespace ConorKoritorOOPCA2
             t3.AddPlayer(p7);
             t3.AddPlayer(p8);
             t3.AddPlayer(p9);
+        }
+
+        public void CalculatePoints()
+        {
+            foreach(Team team in Teams)
+            {
+                team.CalculatePoints();
+            }
+
+        }
+
+        public void DisplayData()
+        {
+            lstbxTeams.ItemsSource = Teams;
+            lstbxTeams.SelectedIndex = 0;
+
+            lstbxPlayers.ItemsSource = Teams[lstbxTeams.SelectedIndex].getPlayers();
         }
 
 
